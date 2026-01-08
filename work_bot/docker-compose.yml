@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  work_bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: work_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./main.log:/app/main.log
+
